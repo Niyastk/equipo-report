@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Contact V5</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico'%}" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css'%}">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css'%}">
+  <!--===============================================================================================-->
+
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/util.css'%}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}">
+  <!--===============================================================================================-->
+</head>
+
+<body>
+
+
+  <div class="container-contact100">
+    <div class="wrap-contact100">
+      <form class="contact100-form validate-form" method="POST" action="{% url 'generate_report' %}">
+        {% csrf_token %}
+        <span class="contact100-form-title">
+          Report
+        </span>
+
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Enter Your Email (e@a.x)">
+          <span class="label-input100">Physician Name*</span>
+          <input class="input100" type="text" name="physician_name" placeholder="Enter Your Physician Name" required>
+        </div>
+
+        <div class="wrap-input100 bg1 rs1-wrap-input100">
+          <span class="label-input100">Physician Contact</span>
+          <input class="input100" type="text" pattern="\d*" maxlength="10" minlength="10" name="physician_contact"
+            placeholder="Enter Physician's Phone" required>
+        </div>
+
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Enter Your Email (e@a.x)">
+          <span class="label-input100">Patient First Name *</span>
+          <input class="input100" type="text" name="patient_f_name" placeholder="Enter Your First Name " required>
+        </div>
+
+        <div class="wrap-input100 bg1 rs1-wrap-input100">
+          <span class="label-input100">Patient last Name</span>
+          <input class="input100" type="text" name="patient_l_name" placeholder="Enter Your Last Name" required>
+        </div>
+
+        <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Enter Your Email (e@a.x)">
+          <span class="label-input100">Patient DOB *</span>
+          <input class="input100" type="date" name="dob" placeholder="Enter Your Date of Birth " required>
+        </div>
+
+        <div class="wrap-input100 bg1 rs1-wrap-input100">
+          <span class="label-input100">Patient Contact</span>
+          <input class="input100" pattern="\d*" maxlength="10" minlength="10" type="text" name="patient_contact"
+            placeholder="Enter Your Phone" required>
+        </div>
+
+        <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate="Please Type Your Message">
+          <span class="label-input100">Chief Complaint</span>
+          <textarea class="input100" name="complaint" placeholder="Your complaint here..."></textarea>
+        </div>
+        <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate="Please Type Your Message">
+          <span class="label-input100">Consultation Note</span>
+          <textarea class="input100" name="consultation_note" placeholder="Your notes here..."></textarea>
+        </div>
+
+        <div class="container-contact100-form-btn">
+          <button class="contact100-form-btn">
+            <span>
+              Generate Report
+              <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <script src="{% static 'vendor/bootstrap/js/popper.js'%}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+
+
+</body>
+
+</html>
